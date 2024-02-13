@@ -2,10 +2,8 @@
 
 int renderx = 75; 
 int rendery = 25;
-
 int x = 250;
 int y = 100;
-
 string[,] map1 = new string[1000+renderx*6, 1000+rendery*6];
 Console.SetWindowSize(Console.LargestWindowWidth, Console.LargestWindowHeight);
 Console.SetBufferSize(Console.LargestWindowWidth, Console.LargestWindowHeight);
@@ -102,8 +100,10 @@ void mozgas()
 mapload();
 while (true)
 {
+    Console.ForegroundColor = ConsoleColor.White;
     Console.Clear();
     renderMap();
+    Console.ForegroundColor = ConsoleColor.Black;
     mozgas();
     Thread.Sleep(1);
 }
