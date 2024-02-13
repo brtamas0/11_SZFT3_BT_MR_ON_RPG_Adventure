@@ -57,12 +57,53 @@ void renderMap()
 }
 
 
-
+void mozgas()
+{
+    ConsoleKeyInfo key = Console.ReadKey();
+    if (key.Key == ConsoleKey.W)
+    {
+        if (map1[x-1, y] == " ")
+        {
+            map1[x, y] = " ";
+            x--;
+            map1[x, y] = "X";
+        }
+    }
+    if (key.Key == ConsoleKey.S)
+    {
+        if (map1[x+1, y] == " ")
+        {
+            map1[x, y] = " ";
+            x++;
+            map1[x, y] = "X";
+        }
+    }
+    if (key.Key == ConsoleKey.A)
+    {
+        if (map1[x, y-1] == " ")
+        {
+            map1[x, y] = " ";
+            y--;
+            map1[x, y] = "X";
+        }
+    }
+    if (key.Key == ConsoleKey.D)
+    {
+        if (map1[x, y+1] == " ")
+        {
+            map1[x, y] = " ";
+            y++;
+            map1[x, y] = "X";
+        }
+    }
+    
+}
 
 mapload();
 while (true)
 {
     Console.Clear();
     renderMap();
+    mozgas();
     Thread.Sleep(1);
 }
