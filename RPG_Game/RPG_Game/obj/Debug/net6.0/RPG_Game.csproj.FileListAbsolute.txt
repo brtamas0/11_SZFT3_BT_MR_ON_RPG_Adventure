@@ -1,0 +1,15 @@
+C:\Users\birot\source\repos\RPG_Game\RPG_Game\bin\Debug\net6.0\RPG_Game.exe
+C:\Users\birot\source\repos\RPG_Game\RPG_Game\bin\Debug\net6.0\map.txt
+C:\Users\birot\source\repos\RPG_Game\RPG_Game\bin\Debug\net6.0\RPG_Game.deps.json
+C:\Users\birot\source\repos\RPG_Game\RPG_Game\bin\Debug\net6.0\RPG_Game.runtimeconfig.json
+C:\Users\birot\source\repos\RPG_Game\RPG_Game\bin\Debug\net6.0\RPG_Game.dll
+C:\Users\birot\source\repos\RPG_Game\RPG_Game\bin\Debug\net6.0\RPG_Game.pdb
+C:\Users\birot\source\repos\RPG_Game\RPG_Game\obj\Debug\net6.0\RPG_Game.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\birot\source\repos\RPG_Game\RPG_Game\obj\Debug\net6.0\RPG_Game.AssemblyInfoInputs.cache
+C:\Users\birot\source\repos\RPG_Game\RPG_Game\obj\Debug\net6.0\RPG_Game.AssemblyInfo.cs
+C:\Users\birot\source\repos\RPG_Game\RPG_Game\obj\Debug\net6.0\RPG_Game.csproj.CoreCompileInputs.cache
+C:\Users\birot\source\repos\RPG_Game\RPG_Game\obj\Debug\net6.0\RPG_Game.dll
+C:\Users\birot\source\repos\RPG_Game\RPG_Game\obj\Debug\net6.0\refint\RPG_Game.dll
+C:\Users\birot\source\repos\RPG_Game\RPG_Game\obj\Debug\net6.0\RPG_Game.pdb
+C:\Users\birot\source\repos\RPG_Game\RPG_Game\obj\Debug\net6.0\RPG_Game.genruntimeconfig.cache
+C:\Users\birot\source\repos\RPG_Game\RPG_Game\obj\Debug\net6.0\ref\RPG_Game.dll
