@@ -52,6 +52,8 @@ void renderMap()
         map += "\n";
     }
     
+    Console.WriteLine(map);
+    Console.WriteLine("X: " + (y-rendery*3-1) + " Y: " + (x-renderx*3+2));
 }
 
 
