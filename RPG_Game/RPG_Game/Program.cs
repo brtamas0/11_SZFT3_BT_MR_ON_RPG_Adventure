@@ -153,7 +153,12 @@ void menu()
 {
     Console.Clear();
     Console.WriteLine("Menü");
+    Console.WriteLine("Képességégek")
+    Console.WriteLine("Irányítás")
+    Console.WriteLine("Segítség")
+    Console.WriteLine("Kinézet")
 }
+
 void map()
 {
     Console.Clear();
