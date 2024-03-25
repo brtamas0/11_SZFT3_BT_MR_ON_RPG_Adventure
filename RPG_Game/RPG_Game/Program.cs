@@ -4,7 +4,7 @@ int renderx = 60;
 int rendery = 30;
 int x = 10+renderx*3;
 int y = 10+rendery*3;
-int display = 0; // 0 = game 1 = menü 2 = map, 3 = inventory, 4 = shop, 5 = harc, 6 = beállítások
+int display = 0; 
 Player karakter = new Player(x, y, "Játékos", 10, 5, 0, 1, 100, 0, new string[10]);
 //                           x  y   nev     sebzes armor xp level hp maxhp gold inventory
 
