@@ -153,21 +153,21 @@ void menu()
 {
     Console.Clear();
     Console.WriteLine("Menü");
-    Console.WriteLine("Képességégek")
-    Console.WriteLine("Irányítás")
-    Console.WriteLine("Segítség")
-    Console.WriteLine("Kinézet")
+    Console.WriteLine("Képességégek");
+    Console.WriteLine("Irányítás");
+    Console.WriteLine("Segítség");
+    Console.WriteLine("Kinézet");
 }
 
 void iranyitas()
 {
-    Console.WriteLine("0 = game")
-    Console.WriteLine("1 = menü")
-    Console.WriteLine("2 = map")
-    Console.WriteLine("3 = inventory")
-    Console.WriteLine("4 = shop")
-    Console.WriteLine("5 = harc")
-    Console.WriteLine("6 = beállítások")
+    Console.WriteLine("0 = game");
+    Console.WriteLine("1 = menü");
+    Console.WriteLine("2 = map");
+    Console.WriteLine("3 = inventory");
+    Console.WriteLine("4 = shop");
+    Console.WriteLine("5 = harc");
+    Console.WriteLine("6 = beállítások");
 }
 
 void map()
