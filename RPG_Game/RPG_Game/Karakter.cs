@@ -14,7 +14,7 @@
         public int Gold { get; set; }
         public string[] Inventory { get; set; }
 
-        public string[] Kinezet { get; private set; } = {
+        public string[] Kinezet { get; set; } = {
             "   .-.   ",
             " __|=|__ ",
             "(_/`-`\\_)",

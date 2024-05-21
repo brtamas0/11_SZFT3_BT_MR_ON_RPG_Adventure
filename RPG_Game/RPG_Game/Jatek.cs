@@ -1,12 +1,23 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+using System.Threading;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace RPG_Game
 {
-    internal class Class1
+    public class Jatek
     {
+        public int renderx = 60;
+        public int rendery = 30;
+        private int display = 0; // 0 = game 1 = menü 2 = map, 3 = inventory, 4 = shop, 5 = harc, 6 = beállítások
+        private Karakter karakter;
+        private Palya palya;
+
+        public Jatek()
+        {
+            int x = 10 + renderx * 3;
+            int y = 10 + rendery * 3;
+            karakter = new Karakter(x, y, "Játékos", 10, 5, 0, 1, 100, 0, new string[10]);
+            palya = new Palya(renderx, rendery);
+        }
     }
 }
