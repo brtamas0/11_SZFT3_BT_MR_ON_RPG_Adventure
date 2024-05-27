@@ -12,7 +12,24 @@ namespace RPG_Game
                 case 0:
                     JatekKijelzes(karakter, palya, renderx, rendery);
                     break;
-
+                case 1:
+                    MenuKijelzes();
+                    break;
+                case 2:
+                    MapKijelzes();
+                    break;
+                case 3:
+                    InventoryKijelzes();
+                    break;
+                case 4:
+                    ShopKijelzes();
+                    break;
+                case 5:
+                    HarcKijelzes();
+                    break;
+                case 6:
+                    BeallitasokKijelzes();
+                    break;
             }
         }
 
@@ -35,6 +52,68 @@ namespace RPG_Game
             Console.WriteLine($"{$"{new string('█', karakter.Hp / 10)}{new string('▒', 10 - karakter.Hp / 10)}"} {karakter.Hp}% ❤️ \n{karakter.Sebzes} 🗡️ \n{karakter.Armor} 🛡️\nX: {karakter.y - renderx * 3 - 1} Y: {karakter.x - rendery * 3 - 1}");
         }
 
+        private void MenuKijelzes()
+        {
+            Console.Clear();
+            Console.WriteLine("Menü");
+            Console.WriteLine("Képességek");
+            Console.WriteLine("Irányítás");
+            Console.WriteLine("Segítség");
+            Console.WriteLine("Kinézet");
+        }
+
+        private void MapKijelzes()
+        {
+            Console.Clear();
+            Console.WriteLine("Map");
+        }
+
+        private void InventoryKijelzes()
+        {
+            Console.Clear();
+            Console.WriteLine("Inventory");
+        }
+
+        private void ShopKijelzes()
+        {
+            Console.Clear();
+            Console.WriteLine("Shop");
+        }
+
+        private void HarcKijelzes()
+        {
+            Console.Clear();
+            Console.WriteLine("Harc");
+        }
+
+        private void BeallitasokKijelzes()
+        {
+            Console.Clear();
+            Console.WriteLine("Beállítások");
+        }
+
+        public static void MenuGombok(int display)
+        {
+            if (Console.KeyAvailable)
+            {
+                ConsoleKeyInfo key = Console.ReadKey(true);
+                if (key.Key == ConsoleKey.M)
+                {
+                    display = display == 0 ? 2 : 0;
+                }
+                if (key.Key == ConsoleKey.E)
+                {
+                    display = display == 0 ? 3 : 0;
+                }
+                if (key.Key == ConsoleKey.G)
+                {
+                    display = display == 0 ? 4 : 0;
+                }
+                if (key.Key == ConsoleKey.Escape)
+                {
+                    display = display == 0 ? 6 : 0;
+                }
+            }
         }
     }
 }
