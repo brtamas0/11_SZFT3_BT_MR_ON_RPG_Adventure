@@ -30,5 +30,10 @@ namespace RPG_Game
                 }
             }
         }
+
+        public string[,] GetTerkep()
+        {
+            return terkep;
+        }
     }
 }
