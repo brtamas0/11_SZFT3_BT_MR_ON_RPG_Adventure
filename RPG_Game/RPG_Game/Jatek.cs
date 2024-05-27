@@ -11,6 +11,7 @@ namespace RPG_Game
         private int display = 0; // 0 = game 1 = menü 2 = map, 3 = inventory, 4 = shop, 5 = harc, 6 = beállítások
         private Karakter karakter;
         private Palya palya;
+        private Kijelzo kijelzo;
 
         public Jatek()
         {
@@ -18,6 +19,25 @@ namespace RPG_Game
             int y = 10 + rendery * 3;
             karakter = new Karakter(x, y, "Játékos", 10, 5, 0, 1, 100, 0, new string[10]);
             palya = new Palya(renderx, rendery);
+            kijelzo = new Kijelzo();
         }
+
+        public void Fut()
+        {
+            Console.SetWindowSize(Console.LargestWindowWidth, Console.LargestWindowHeight);
+            Console.SetBufferSize(Console.LargestWindowWidth, Console.LargestWindowHeight);
+            Console.CursorVisible = false;
+            Console.Title = "RPG Game";
+            Console.OutputEncoding = Encoding.UTF8;
+
+            palya.Betolt("map.txt");
+
+            while (true)
+            {
+                kijelzo.Megjelenit(display, karakter, palya, renderx, rendery);
+                Thread.Sleep(1);
+            }
+        }
+
     }
 }
