@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\birot\\source\\repos\\11_SZFT3_BT_MR_ON_RPG_Adventure\\RPG_Game\\RPG_Game\\RPG_Game.csproj": {}
+    "C:\\Users\\birot\\OneDrive\\Desktop\\ProjektUtolso\\11_SZFT3_BT_MR_ON_RPG_Adventure\\RPG_Game\\RPG_Game\\RPG_Game.csproj": {}
   },
   "projects": {
-    "C:\\Users\\birot\\source\\repos\\11_SZFT3_BT_MR_ON_RPG_Adventure\\RPG_Game\\RPG_Game\\RPG_Game.csproj": {
+    "C:\\Users\\birot\\OneDrive\\Desktop\\ProjektUtolso\\11_SZFT3_BT_MR_ON_RPG_Adventure\\RPG_Game\\RPG_Game\\RPG_Game.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\birot\\source\\repos\\11_SZFT3_BT_MR_ON_RPG_Adventure\\RPG_Game\\RPG_Game\\RPG_Game.csproj",
+        "projectUniqueName": "C:\\Users\\birot\\OneDrive\\Desktop\\ProjektUtolso\\11_SZFT3_BT_MR_ON_RPG_Adventure\\RPG_Game\\RPG_Game\\RPG_Game.csproj",
         "projectName": "RPG_Game",
-        "projectPath": "C:\\Users\\birot\\source\\repos\\11_SZFT3_BT_MR_ON_RPG_Adventure\\RPG_Game\\RPG_Game\\RPG_Game.csproj",
+        "projectPath": "C:\\Users\\birot\\OneDrive\\Desktop\\ProjektUtolso\\11_SZFT3_BT_MR_ON_RPG_Adventure\\RPG_Game\\RPG_Game\\RPG_Game.csproj",
         "packagesPath": "C:\\Users\\birot\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\birot\\source\\repos\\11_SZFT3_BT_MR_ON_RPG_Adventure\\RPG_Game\\RPG_Game\\obj\\",
+        "outputPath": "C:\\Users\\birot\\OneDrive\\Desktop\\ProjektUtolso\\11_SZFT3_BT_MR_ON_RPG_Adventure\\RPG_Game\\RPG_Game\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
