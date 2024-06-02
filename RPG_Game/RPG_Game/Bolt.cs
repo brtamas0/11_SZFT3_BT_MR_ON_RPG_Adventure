@@ -11,29 +11,46 @@ public class Bolt
     {
         egyszerHasznalatosTargyak = new Dictionary<string, int>
         {
-            { "Életerő ital", 50 },
-            { "Mana ital", 30 }
+            { "Energia ital", 50 },
+            { "Gyógyítás ital", 30 }
+            { "Ellenállás ital", 30 }
+
         };
         fegyverek = new Dictionary<string, int>
         {
             { "Kard", 100 },
-            { "Fejsze", 120 }
+            { "Tőr", 120 }
+            { "Kés", 150 },
+            { "Bárd", 200 }
         };
         fegyverFejlesztesek = new Dictionary<string, int>
         {
             { "Kard fejlesztés", 70 },
-            { "Fejsze fejlesztés", 80 }
+            { "Tőr fejlesztés", 80 }
+            { "Kés fejlesztés", 100 },
+            { "Bárd fejlesztés", 120 }
         };
-        ruhak = new Dictionary<string, int>
-        {
-            { "Bőrpáncél", 150 },
-            { "Vaspáncél", 200 }
-        };
-        ruhaFejlesztesek = new Dictionary<string, int>
-        {
-            { "Bőrpáncél fejlesztés", 100 },
-            { "Vaspáncél fejlesztés", 120 }
-        };
+        
         jatekosArany = kezdetiArany;
+    }
+        public void BoltElemekMegjelenitese()
+    {
+        Console.WriteLine("Üdvözöllek a boltban! Itt vannak a vásárolható elemek:");
+        Console.WriteLine("Egyszer használatos tárgyak:");
+        foreach (var item in egyszerHasznalatosTargyak)
+        {
+            Console.WriteLine($"{item.Key}: {item.Value} arany");
+        }
+        Console.WriteLine("\nFegyverek:");
+        foreach (var fegyver in fegyverek)
+        {
+            Console.WriteLine($"{fegyver.Key}: {fegyver.Value} arany");
+        }
+        Console.WriteLine("\nFegyver fejlesztések:");
+        foreach (var fejlesztes in fegyverFejlesztesek)
+        {
+            Console.WriteLine($"{fejlesztes.Key}: {fejlesztes.Value} arany");
+        }
+        
     }
      }
