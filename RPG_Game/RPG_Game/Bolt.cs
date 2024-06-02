@@ -53,4 +53,44 @@ public class Bolt
         }
         
     }
+    public void TargyVasarlas(string targyNeve)
+    {
+        if (egyszerHasznalatosTargyak.ContainsKey(targyNeve))
+        {
+            if (jatekosArany >= egyszerHasznalatosTargyak[targyNeve])
+            {
+                jatekosArany -= egyszerHasznalatosTargyak[targyNeve];
+                Console.WriteLine($"Megvetted a(z) {targyNeve}. Maradék arany: {jatekosArany}");
+            }
+            else
+            {
+                Console.WriteLine("Nincs elég aranyad ehhez a tárgyhoz.");
+            }
+        }
+        else if (fegyverek.ContainsKey(targyNeve))
+        {
+            if (jatekosArany >= fegyverek[targyNeve])
+            {
+                jatekosArany -= fegyverek[targyNeve];
+                Console.WriteLine($"Megvetted a(z) {targyNeve}. Maradék arany: {jatekosArany}");
+            }
+            else
+            {
+                Console.WriteLine("Nincs elég aranyad ehhez a tárgyhoz.");
+            }
+        }
+        else if (fegyverFejlesztesek.ContainsKey(targyNeve))
+        {
+            if (jatekosArany >= fegyverFejlesztesek[targyNeve])
+            {
+                jatekosArany -= fegyverFejlesztesek[targyNeve];
+                Console.WriteLine($"Megvetted a(z) {targyNeve}. Maradék arany: {jatekosArany}");
+            }
+            else
+            {
+                Console.WriteLine("Nincs elég aranyad ehhez a tárgyhoz.");
+            }
+        }
+                    
      }
+}
