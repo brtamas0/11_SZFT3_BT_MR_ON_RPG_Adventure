@@ -20,4 +20,15 @@ namespace RPG_Game
             palya = new Palya(renderx, rendery);
         }
     }
+
+    static void Main(string[] args)
+    {
+        Bolt bolt = new Bolt(500); // Kezdeti arany a játékosnak
+        bolt.BoltElemekMegjelenitese();
+        
+        Console.WriteLine("\nAdd meg a vásárolni kívánt tárgy nevét:");
+        string targyNeve = Console.ReadLine();
+        
+        bolt.TargyVasarlas(targyNeve);
+    }
 }
