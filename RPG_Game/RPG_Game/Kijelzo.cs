@@ -49,7 +49,7 @@ namespace RPG_Game
 
             Console.SetCursorPosition(0, 0);
             Console.Write(terkepString.ToString());
-            Console.WriteLine($"{$"{new string('█', karakter.Hp / 10)}{new string('▒', 10 - karakter.Hp / 10)}"} {karakter.Hp}% ❤️ \n{karakter.Sebzes} 🗡️ \n{karakter.Armor} 🛡️\nX: {karakter.y - renderx * 3 - 1} Y: {karakter.x - rendery * 3 - 1}");
+            Console.WriteLine($"{$"{new string('█', karakter.Hp / 10)}{new string('▒', 10 - karakter.Hp / 10)}"} {karakter.Hp}% ❤️ \n{karakter.Sebzes} 🗡️ \n{karakter.Armor} 🛡️\nX: {karakter.y - renderx * 3 - 1} \nY: {karakter.x - rendery * 3 - 1}");
         }
 
         private void MenuKijelzes()
@@ -92,7 +92,7 @@ namespace RPG_Game
             Console.WriteLine("Beállítások");
         }
 
-        public static void MenuGombok(int display)
+        public static void MenuGombok(ref int display)
         {
             if (Console.KeyAvailable)
             {

@@ -3,16 +3,16 @@ using System.IO;
 
 namespace RPG_Game
 {
-    public class Palya : Jatek
+    public class Palya
     {
-        private string[,] terkep; //egész pálya
+        private string[,] terkep;
 
-        public Palya(int renderx, int rendery) //renderelt terület
+        public Palya(int renderx, int rendery)
         {
-            terkep = new string[1000 + renderx * 6, 1000 + rendery * 6]; // 1000x1000 pálya+extra üres helyek, hogy ne tudjon kisétálni a pályáról (nem lenne mit printelni/hozzáadni a streambuilderhez később)
+            terkep = new string[1000 + renderx * 6, 1000 + rendery * 6];
         }
 
-        public void Betolt(string beolvasott) //minden mező feltöltése üres karakterrel
+        public void Betolt(string fileName)
         {
             for (int i = 0; i < terkep.GetLength(0); i++)
             {
@@ -21,12 +21,12 @@ namespace RPG_Game
                     terkep[i, j] = " ";
                 }
             }
-            string[] lines = File.ReadAllLines(beolvasott);
+            string[] lines = File.ReadAllLines(fileName);
             for (int i = 0; i < 1000; i++)
             {
                 for (int j = 0; j < 1000; j++)
                 {
-                    terkep[i + renderx * 3, j + rendery * 3] = lines[i][j].ToString();
+                    terkep[i + 30 * 3, j + 30 * 3] = lines[i][j].ToString();
                 }
             }
         }

@@ -13,7 +13,8 @@
         public int MaxHp { get; set; }
         public int Gold { get; set; }
         public string[] Inventory { get; set; }
-        public string[] Kinezet { get; set; } = {
+
+        public string[] AsciiArt { get; private set; } = {
             "   .-.   ",
             " __|=|__ ",
             "(_/`-`\\_)",

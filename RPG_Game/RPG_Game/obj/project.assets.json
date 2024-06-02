@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\birot\\Documents\\GitHub\\11_SZFT3_BT_MR_ON_RPG_Adventure\\RPG_Game\\RPG_Game\\RPG_Game.csproj",
+      "projectUniqueName": "C:\\Users\\birot\\Downloads\\jatek\\RPG_Game\\RPG_Game\\RPG_Game.csproj",
       "projectName": "RPG_Game",
-      "projectPath": "C:\\Users\\birot\\Documents\\GitHub\\11_SZFT3_BT_MR_ON_RPG_Adventure\\RPG_Game\\RPG_Game\\RPG_Game.csproj",
+      "projectPath": "C:\\Users\\birot\\Downloads\\jatek\\RPG_Game\\RPG_Game\\RPG_Game.csproj",
       "packagesPath": "C:\\Users\\birot\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\birot\\Documents\\GitHub\\11_SZFT3_BT_MR_ON_RPG_Adventure\\RPG_Game\\RPG_Game\\obj\\",
+      "outputPath": "C:\\Users\\birot\\Downloads\\jatek\\RPG_Game\\RPG_Game\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\birot\\AppData\\Roaming\\NuGet\\NuGet.Config",
