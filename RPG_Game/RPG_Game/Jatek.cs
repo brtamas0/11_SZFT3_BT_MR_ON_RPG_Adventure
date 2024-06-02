@@ -41,14 +41,4 @@ namespace RPG_Game
 
     }
 
-    static void Main(string[] args)
-    {
-        Bolt bolt = new Bolt(500); // Kezdeti arany a játékosnak
-        bolt.BoltElemekMegjelenitese();
-        
-        Console.WriteLine("\nAdd meg a vásárolni kívánt tárgy nevét:");
-        string targyNeve = Console.ReadLine();
-        
-        bolt.TargyVasarlas(targyNeve);
-    }
 }
