@@ -10,10 +10,9 @@
         public int Xp { get; set; }
         public int Level { get; set; }
         public int Hp { get; set; }
-        public int MaxHp { get; set; } //maybe nem lesz értelme?
+        public int MaxHp { get; set; }
         public int Gold { get; set; }
         public string[] Inventory { get; set; }
-
         public string[] Kinezet { get; set; } = {
             "   .-.   ",
             " __|=|__ ",
