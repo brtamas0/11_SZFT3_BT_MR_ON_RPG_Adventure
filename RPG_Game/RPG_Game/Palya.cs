@@ -3,7 +3,7 @@ using System.IO;
 
 namespace RPG_Game
 {
-    public class Palya
+    public class Palya : Jatek
     {
         private string[,] terkep; //egész pálya
 
@@ -26,7 +26,7 @@ namespace RPG_Game
             {
                 for (int j = 0; j < 1000; j++)
                 {
-                    terkep[i + Jatek.renderx * 3, j + Jatek.rendery * 3] = lines[i][j].ToString();
+                    terkep[i + renderx * 3, j + rendery * 3] = lines[i][j].ToString();
                 }
             }
         }
