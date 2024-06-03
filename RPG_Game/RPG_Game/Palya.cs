@@ -22,14 +22,17 @@ namespace RPG_Game
                 }
             }
             string[] lines = File.ReadAllLines(fileName);
-            for (int i = 0; i < 1000; i++)
+            int linesLength = Math.Min(lines.Length, 1000);
+            for (int i = 0; i < linesLength; i++)
             {
-                for (int j = 0; j < 1000; j++)
+                int stringLength = Math.Min(lines[i].Length, 1000);
+                for (int j = 0; j < stringLength; j++)
                 {
                     terkep[i + 30 * 3, j + 30 * 3] = lines[i][j].ToString();
                 }
             }
         }
+
 
         public string[,] GetTerkep()
         {
