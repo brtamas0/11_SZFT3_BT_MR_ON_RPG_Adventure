@@ -3,7 +3,7 @@ using System.IO;
 
 namespace RPG_Game
 {
-    public class Palya
+    public class Palya : IPalya
     {
         private string[,] terkep;
 

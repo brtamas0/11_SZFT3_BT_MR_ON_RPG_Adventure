@@ -8,18 +8,18 @@ namespace RPG_Game
     public class Jatek
     {
         private int renderx = 60;
-        private int rendery = 20;
+        private int rendery = 30;
         private int display = 0; // 0 = game 1 = harc
         private int gamestate = 0; // 0 = beszélgetés, 1 = játék indul, stb.
         private DateTime startTime;
-        private Karakter karakter;
-        private Palya palya;
-        private Kijelzo kijelzo;
+        private IKarakter karakter;
+        private IPalya palya;
+        private IKijelzo kijelzo;
 
         public Jatek()
         {
-            int x = 147;
-            int y = 365;
+            int x = 10 + renderx * 3;
+            int y = 10 + rendery * 3;
             karakter = new Karakter(x, y, "Játékos", 10, 5, 0, 1, 70, 100, new string[10]);
             palya = new Palya(renderx, rendery);
             kijelzo = new Kijelzo();
@@ -42,7 +42,7 @@ namespace RPG_Game
                 if (gamestate == 0)
                 {
                     // Párbeszéd megjelenítése
-                    Párbeszéd();
+                    Parbeszed();
                 }
                 else
                 {
@@ -50,7 +50,20 @@ namespace RPG_Game
                     Kezeles();
                     Thread.Sleep(1);
                 }
+                EllenorizGameState();
             }
+        }
+
+        private void Parbeszed()
+        {
+            Console.Clear();
+            string[] lines = File.ReadAllLines("parbeszed1.txt");
+            foreach (string line in lines)
+            {
+                Console.WriteLine(line);
+            }
+            Thread.Sleep(10000);
+            gamestate = 1;
         }
 
         private void Kezeles()
@@ -66,8 +79,8 @@ namespace RPG_Game
             if (Console.KeyAvailable)
             {
                 ConsoleKeyInfo key = Console.ReadKey(true);
-                int newX = karakter.x;
-                int newY = karakter.y;
+                int newX = karakter.X;
+                int newY = karakter.Y;
 
                 if (key.Key == ConsoleKey.W)
                 {
@@ -103,6 +116,9 @@ namespace RPG_Game
                     case ConsoleKey.D3:
                         Vasarlas(20, 10, "Pajzs");
                         break;
+                    case ConsoleKey.F:
+                        Harc();
+                        break;
                 }
             }
         }
@@ -112,11 +128,7 @@ namespace RPG_Game
             if (karakter.Gold >= ar)
             {
                 karakter.Gold -= ar;
-                if (targy == "Kard")
-                {
-                    karakter.Sebzes += novekedes;
-                }
-                else if (targy == "Íj")
+                if (targy == "Kard" || targy == "Íj")
                 {
                     karakter.Sebzes += novekedes;
                 }
@@ -138,8 +150,8 @@ namespace RPG_Game
 
         private bool EllenorizMozgas(int ujX, int ujY, ConsoleKey key)
         {
-            int characterHeight = karakter.kinezet.Length;
-            int characterWidth = karakter.kinezet[0].Length;
+            int characterHeight = karakter.Kinezet.Length;
+            int characterWidth = karakter.Kinezet[0].Length;
             string[,] terkep = palya.GetTerkep();
 
             switch (key)
@@ -147,7 +159,7 @@ namespace RPG_Game
                 case ConsoleKey.W:
                     for (int j = 0; j < characterWidth; j++)
                     {
-                        if (terkep[ujX, karakter.y + j] != " ")
+                        if (terkep[ujX, karakter.Y + j] != " ")
                         {
                             return false;
                         }
@@ -156,7 +168,7 @@ namespace RPG_Game
                 case ConsoleKey.S:
                     for (int j = 0; j < characterWidth; j++)
                     {
-                        if (terkep[ujX + characterHeight - 1, karakter.y + j] != " ")
+                        if (terkep[ujX + characterHeight - 1, karakter.Y + j] != " ")
                         {
                             return false;
                         }
@@ -165,7 +177,7 @@ namespace RPG_Game
                 case ConsoleKey.A:
                     for (int i = 0; i < characterHeight; i++)
                     {
-                        if (terkep[karakter.x + i, ujY] != " ")
+                        if (terkep[karakter.X + i, ujY] != " ")
                         {
                             return false;
                         }
@@ -174,7 +186,7 @@ namespace RPG_Game
                 case ConsoleKey.D:
                     for (int i = 0; i < characterHeight; i++)
                     {
-                        if (terkep[karakter.x + i, ujY + characterWidth - 1] != " ")
+                        if (terkep[karakter.X + i, ujY + characterWidth - 1] != " ")
                         {
                             return false;
                         }
@@ -188,28 +200,28 @@ namespace RPG_Game
         private void UjKarakterPozicio(int ujX, int ujY)
         {
             // Törli a karakter korábbi helyét
-            for (int i = 0; i < karakter.kinezet.Length; i++)
+            for (int i = 0; i < karakter.Kinezet.Length; i++)
             {
-                for (int j = 0; j < karakter.kinezet[i].Length; j++)
+                for (int j = 0; j < karakter.Kinezet[i].Length; j++)
                 {
-                    if (karakter.kinezet[i][j] != ' ')
+                    if (karakter.Kinezet[i][j] != ' ')
                     {
-                        palya.GetTerkep()[karakter.x + i, karakter.y + j] = " ";
+                        palya.GetTerkep()[karakter.X + i, karakter.Y + j] = " ";
                     }
                 }
             }
 
-            karakter.x = ujX;
-            karakter.y = ujY;
+            karakter.X = ujX;
+            karakter.Y = ujY;
 
             // Beállítja a karakter új helyét
-            for (int i = 0; i < karakter.kinezet.Length; i++)
+            for (int i = 0; i < karakter.Kinezet.Length; i++)
             {
-                for (int j = 0; j < karakter.kinezet[i].Length; j++)
+                for (int j = 0; j < karakter.Kinezet[i].Length; j++)
                 {
-                    if (karakter.kinezet[i][j] != ' ')
+                    if (karakter.Kinezet[i][j] != ' ')
                     {
-                        palya.GetTerkep()[karakter.x + i, karakter.y + j] = karakter.kinezet[i][j].ToString();
+                        palya.GetTerkep()[karakter.X + i, karakter.Y + j] = karakter.Kinezet[i][j].ToString();
                     }
                 }
             }
@@ -217,57 +229,41 @@ namespace RPG_Game
 
         private void KarakterElhelyezes()
         {
-            for (int i = 0; i < karakter.kinezet.Length; i++)
+            for (int i = 0; i < karakter.Kinezet.Length; i++)
             {
-                for (int j = 0; j < karakter.kinezet[i].Length; j++)
+                for (int j = 0; j < karakter.Kinezet[i].Length; j++)
                 {
-                    if (karakter.kinezet[i][j] != ' ')
+                    if (karakter.Kinezet[i][j] != ' ')
                     {
-                        palya.GetTerkep()[karakter.x + i, karakter.y + j] = karakter.kinezet[i][j].ToString();
+                        palya.GetTerkep()[karakter.X + i, karakter.Y + j] = karakter.Kinezet[i][j].ToString();
                     }
                 }
             }
         }
 
-        private void Párbeszéd()
+        private void Harc()
         {
+            display = 1;
             Console.Clear();
-            Thread.Sleep(1000);
-            Console.BackgroundColor = ConsoleColor.Black;
-            Console.ForegroundColor = ConsoleColor.White;
-            string parbeszed1 = File.ReadAllText("parbeszed1.txt");
-            Console.WriteLine(parbeszed1);
-            Thread.Sleep(1000);
-            Console.ReadKey();
-            Console.Clear();
-            string parbeszed2 = File.ReadAllText("parbeszed2.txt");
-            Console.WriteLine(parbeszed2);
-            Thread.Sleep(1000);
-            Console.ReadKey();
-            Console.Clear();
-            string parbeszed3 = File.ReadAllText("parbeszed3.txt");
-            Console.WriteLine(parbeszed3);
-            Thread.Sleep(1000);
-            Console.ReadKey();
-            Console.Clear();
-
-
-            // 10 másodperc várakozás
-            Thread.Sleep(1000);
-
-            gamestate = 1; // Játék indul
-            startTime = DateTime.Now;
+            string[] lines = File.ReadAllLines("harc1.txt");
+            foreach (string line in lines)
+            {
+                Console.WriteLine(line);
+            }
+            // Harc szimuláció
+            Thread.Sleep(10000); // Szimuláljuk a harcot 10 másodpercig
+            display = 0;
+            gamestate = 6; // A játék vége
+            int teljesitesIdeje = (int)(DateTime.Now - startTime).TotalSeconds;
+            int pontszam = 1000 - teljesitesIdeje;
+            Console.WriteLine($"Játék vége! Pontszámod: {pontszam}");
         }
 
         private void EllenorizGameState()
         {
             if (gamestate == 6)
             {
-                DateTime endTime = DateTime.Now;
-                double teljesitesiIdo = (endTime - startTime).TotalSeconds;
-                int pontszam = 1000 - (int)teljesitesiIdo;
-                Console.WriteLine($"Játék vége! Pontszám: {pontszam}");
-                Environment.Exit(0); // Program befejezése
+                Environment.Exit(0);
             }
         }
     }

@@ -81,3 +81,4 @@ C:\Users\birot\Documents\GitHub\11_SZFT3_BT_MR_ON_RPG_Adventure\RPG_Game\RPG_Gam
 C:\Users\birot\Documents\GitHub\11_SZFT3_BT_MR_ON_RPG_Adventure\RPG_Game\RPG_Game\obj\Debug\net6.0\RPG_Game.pdb
 C:\Users\birot\Documents\GitHub\11_SZFT3_BT_MR_ON_RPG_Adventure\RPG_Game\RPG_Game\obj\Debug\net6.0\RPG_Game.genruntimeconfig.cache
 C:\Users\birot\Documents\GitHub\11_SZFT3_BT_MR_ON_RPG_Adventure\RPG_Game\RPG_Game\obj\Debug\net6.0\ref\RPG_Game.dll
+C:\Users\birot\Documents\GitHub\11_SZFT3_BT_MR_ON_RPG_Adventure\RPG_Game\RPG_Game\bin\Debug\net6.0\harc1.txt
