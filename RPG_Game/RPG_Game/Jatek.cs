@@ -10,7 +10,7 @@ namespace RPG_Game
         private int renderx = 60;
         private int rendery = 20;
         private int display = 0; // 0 = game 1 = harc
-        private int gamestate = 0; // 0 = párbeszéd, 1 = játék, stb.
+        private int gamestate = 0; // 0 = párbeszéd, 1 = játék
         private DateTime startTime;
         private IKarakter karakter;
         private IPalya palya;
@@ -20,7 +20,7 @@ namespace RPG_Game
         {
             int x = 148;
             int y = 366;
-            karakter = new Karakter(x, y, "Játékos", 10, 5, 0, 1, 70, 100, new string[10]);
+            karakter = new Karakter(x, y, "Játékos", 10, 5, 0, 1, 100, 100, new string[10]);
             palya = new Palya(renderx, rendery);
             kijelzo = new Kijelzo();
             startTime = DateTime.Now;
@@ -269,7 +269,7 @@ namespace RPG_Game
                 {
                     Console.WriteLine(line);
                 }
-                Console.WriteLine($"Karakter HP: {karakter.Hp}\t\t\t Sárkány HP: {sarkanyHp}");
+                Console.WriteLine($"Karakter HP: {new string('█', karakter.Hp / 10)}{new string('▒', 10 - karakter.Hp / 10)} {karakter.Hp}% ❤️ \t\t\t Sárkány HP: {sarkanyHp}% ❤️");
                 Console.WriteLine($"Karakter Sebzés: {karakter.Sebzes}\t\t Sárkány Sebzés: {sarkanySebzes}");
                 Console.WriteLine("Nyomj meg egy gombot a támadáshoz (T)");
 
