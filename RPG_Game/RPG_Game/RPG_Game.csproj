@@ -11,6 +11,12 @@
     <None Update="Fa.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Update="vesztettel.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="nyertel.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Update="map.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

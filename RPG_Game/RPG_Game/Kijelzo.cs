@@ -34,7 +34,7 @@ namespace RPG_Game
 
             Console.SetCursorPosition(0, 0);
             Console.Write(terkepString.ToString());
-            Console.WriteLine($"{$"{new string('█', karakter.Hp / 10)}{new string('▒', 10 - karakter.Hp / 10)}"} {karakter.Hp}% ❤️ \n{karakter.Sebzes} 🗡️ \n{karakter.Armor} 🛡️\nX: {karakter.Y} \nY: {karakter.X}");
+            Console.WriteLine($"{$"{new string('█', karakter.Hp / 10)}{new string('▒', 10 - karakter.Hp / 10)}"} {karakter.Hp}% ❤️ \n{karakter.Sebzes} 🗡️ \n{karakter.Armor} 🛡️\nX: {karakter.Y} \nY: {karakter.X - rendery * 3 - 1}");
             Console.WriteLine($"Arany: {karakter.Gold} 💰");
             Console.WriteLine("[1] Kard (50 arany)   [2] Íj (25 arany)   [3] Pajzs (20 arany)");
             Console.WriteLine("Küldetés: Kövesd a kavicsokat a ház mögött, ami elvezet a barlang bejáratáig.");
@@ -42,8 +42,6 @@ namespace RPG_Game
 
         private void HarcKijelzes()
         {
-            Console.Clear();
-            Console.WriteLine("Harc");
         }
     }
 }

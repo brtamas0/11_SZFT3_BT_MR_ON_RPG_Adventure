@@ -50,13 +50,13 @@ namespace RPG_Game
                     Kezeles();
                     Thread.Sleep(1);
                 }
-                EllenorizGameState();
             }
         }
 
         private void Parbeszed()
         {
             Console.WriteLine("Nyomj meg egy gombot az indításhoz!");
+            Console.WriteLine("Irányítás: WASD-vel történik.");
             Console.ReadKey();
             Console.Clear();
             Console.ForegroundColor = ConsoleColor.White;
@@ -256,28 +256,66 @@ namespace RPG_Game
 
         private void Harc()
         {
+            int sarkanyHp = 100;
+            int sarkanySebzes = 30;
             display = 1;
-            Console.Clear();
-            string[] lines = File.ReadAllLines("harc1.txt");
-            foreach (string line in lines)
+            
+
+            while (karakter.Hp > 0 && sarkanyHp > 0)
             {
-                Console.WriteLine(line);
+                Console.Clear();
+                string[] lines = File.ReadAllLines("harc1.txt");
+                foreach (string line in lines)
+                {
+                    Console.WriteLine(line);
+                }
+                Console.WriteLine($"Karakter HP: {karakter.Hp}\t\t\t Sárkány HP: {sarkanyHp}");
+                Console.WriteLine($"Karakter Sebzés: {karakter.Sebzes}\t\t Sárkány Sebzés: {sarkanySebzes}");
+                Console.WriteLine("Nyomj meg egy gombot a támadáshoz (T)");
+
+                if (Console.ReadKey(true).Key == ConsoleKey.T)
+                {
+                    sarkanyHp -= karakter.Sebzes;
+                    if (sarkanyHp <= 0)
+                    {
+                        Win();
+                        return;
+                    }
+
+                    karakter.Hp -= Math.Max(5, sarkanySebzes - karakter.Armor);
+                    if (karakter.Hp <= 0)
+                    {
+                        Lose();
+                        return;
+                    }
+                }
             }
-            // Harc szimuláció
-            Thread.Sleep(10000); // Szimuláljuk a harcot 10 másodpercig
-            display = 0;
-            gamestate = 6; // A játék vége
-            int teljesitesIdeje = (int)(DateTime.Now - startTime).TotalSeconds;
-            int pontszam = 1000 - teljesitesIdeje;
-            Console.WriteLine($"Játék vége! Pontszámod: {pontszam}");
         }
 
-        private void EllenorizGameState()
+        private void Win()
         {
-            if (gamestate == 6)
-            {
-                Environment.Exit(0);
-            }
+            Console.Clear();
+            string nyertel = File.ReadAllText("nyertel.txt");
+            Console.WriteLine(nyertel);
+            Console.WriteLine("\t\t");
+            int teljesitesIdeje = (int)(DateTime.Now - startTime).TotalSeconds;
+            int pontszam = 1000 - teljesitesIdeje;
+            Console.WriteLine($"Pontszámod: {pontszam}");
+            gamestate = 6;
         }
+
+        private void Lose()
+        {
+            Console.Clear();
+            string vesztettel = File.ReadAllText("vesztettel.txt");
+            Console.WriteLine(vesztettel);
+            Console.WriteLine("\t\t");
+            int teljesitesIdeje = (int)(DateTime.Now - startTime).TotalSeconds;
+            int pontszam = (1000 - teljesitesIdeje) / 2;
+            Console.WriteLine($"Vesztettél! Pontszámod: {pontszam}");
+            gamestate = 6;
+        }
+
+        
     }
 }
