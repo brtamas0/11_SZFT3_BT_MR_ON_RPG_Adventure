@@ -8,6 +8,6 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = RPG_Game
-build_property.ProjectDir = C:\Users\Maródi - family\OneDrive\Asztali gép\11_SZFT3_BT_MR_ON_RPG_Adventure\RPG_Game\RPG_Game\
+build_property.ProjectDir = C:\Users\birot\Documents\GitHub\11_SZFT3_BT_MR_ON_RPG_Adventure\RPG_Game\RPG_Game\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
