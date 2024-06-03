@@ -34,9 +34,10 @@ namespace RPG_Game
 
             Console.SetCursorPosition(0, 0);
             Console.Write(terkepString.ToString());
-            Console.WriteLine($"{$"{new string('█', karakter.Hp / 10)}{new string('▒', 10 - karakter.Hp / 10)}"} {karakter.Hp}% ❤️ \n{karakter.Sebzes} 🗡️ \n{karakter.Armor} 🛡️\nX: {karakter.y - renderx * 3 - 1} \nY: {karakter.x - rendery * 3 - 1}");
+            Console.WriteLine($"{$"{new string('█', karakter.Hp / 10)}{new string('▒', 10 - karakter.Hp / 10)}"} {karakter.Hp}% ❤️ \n{karakter.Sebzes} 🗡️ \n{karakter.Armor} 🛡️\nX: {karakter.y} \nY: {karakter.x}");
             Console.WriteLine($"Arany: {karakter.Gold} 💰");
             Console.WriteLine("[1] Kard (50 arany)   [2] Íj (25 arany)   [3] Pajzs (20 arany)");
+            Console.WriteLine("Küldetés: ");
         }
 
         private void HarcKijelzes()

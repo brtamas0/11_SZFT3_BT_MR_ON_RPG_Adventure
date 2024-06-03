@@ -1,9 +1,9 @@
 ﻿namespace RPG_Game
 {
-    public class Karakter
+    public class Karakter : IKarakter
     {
-        public int x { get; set; }
-        public int y { get; set; }
+        public int X { get; set; }
+        public int Y { get; set; }
         public string Nev { get; set; }
         public int Sebzes { get; set; }
         public int Armor { get; set; }
@@ -14,7 +14,7 @@
         public int Gold { get; set; }
         public string[] Inventory { get; set; }
 
-        public string[] kinezet { get; private set; } = {
+        public string[] Kinezet { get; private set; } = {
             "   .-.   ",
             " __|=|__ ",
             "(_/`-`\\_)",
@@ -28,8 +28,8 @@
 
         public Karakter(int x, int y, string nev, int sebzes, int armor, int xp, int level, int hp, int gold, string[] inventory)
         {
-            this.x = x;
-            this.y = y;
+            this.X = x;
+            this.Y = y;
             this.Nev = nev;
             this.Sebzes = sebzes;
             this.Armor = armor;

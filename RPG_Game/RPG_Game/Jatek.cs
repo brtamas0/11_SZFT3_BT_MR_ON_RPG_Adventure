@@ -8,7 +8,7 @@ namespace RPG_Game
     public class Jatek
     {
         private int renderx = 60;
-        private int rendery = 30;
+        private int rendery = 20;
         private int display = 0; // 0 = game 1 = harc
         private int gamestate = 0; // 0 = beszélgetés, 1 = játék indul, stb.
         private DateTime startTime;
@@ -18,8 +18,8 @@ namespace RPG_Game
 
         public Jatek()
         {
-            int x = 10 + renderx * 3;
-            int y = 10 + rendery * 3;
+            int x = 147;
+            int y = 365;
             karakter = new Karakter(x, y, "Játékos", 10, 5, 0, 1, 70, 100, new string[10]);
             palya = new Palya(renderx, rendery);
             kijelzo = new Kijelzo();
@@ -237,20 +237,23 @@ namespace RPG_Game
             Console.ForegroundColor = ConsoleColor.White;
             string parbeszed1 = File.ReadAllText("parbeszed1.txt");
             Console.WriteLine(parbeszed1);
+            Thread.Sleep(1000);
             Console.ReadKey();
             Console.Clear();
             string parbeszed2 = File.ReadAllText("parbeszed2.txt");
             Console.WriteLine(parbeszed2);
+            Thread.Sleep(1000);
             Console.ReadKey();
             Console.Clear();
             string parbeszed3 = File.ReadAllText("parbeszed3.txt");
             Console.WriteLine(parbeszed3);
+            Thread.Sleep(1000);
             Console.ReadKey();
             Console.Clear();
 
 
             // 10 másodperc várakozás
-            Thread.Sleep(10000);
+            Thread.Sleep(1000);
 
             gamestate = 1; // Játék indul
             startTime = DateTime.Now;
