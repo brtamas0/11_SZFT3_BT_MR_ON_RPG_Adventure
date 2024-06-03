@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading;
 using System.Text;
+using System.IO;
 
 namespace RPG_Game
 {
@@ -8,7 +9,9 @@ namespace RPG_Game
     {
         private int renderx = 60;
         private int rendery = 30;
-        private int display = 0; // 0 = game 1 = menü 2 = map, 3 = inventory, 4 = shop, 5 = harc, 6 = beállítások
+        private int display = 0; // 0 = game 1 = harc
+        private int gamestate = 0; // 0 = beszélgetés, 1 = játék indul, stb.
+        private DateTime startTime;
         private Karakter karakter;
         private Palya palya;
         private Kijelzo kijelzo;
@@ -17,9 +20,10 @@ namespace RPG_Game
         {
             int x = 10 + renderx * 3;
             int y = 10 + rendery * 3;
-            karakter = new Karakter(x, y, "Játékos", 10, 5, 0, 1, 70, 0, new string[10]);
+            karakter = new Karakter(x, y, "Játékos", 10, 5, 0, 1, 70, 100, new string[10]);
             palya = new Palya(renderx, rendery);
             kijelzo = new Kijelzo();
+            startTime = DateTime.Now;
         }
 
         public void Fut()
@@ -35,9 +39,17 @@ namespace RPG_Game
 
             while (true)
             {
-                kijelzo.Megjelenit(display, karakter, palya, renderx, rendery);
-                Kezeles();
-                Thread.Sleep(1);
+                if (gamestate == 0)
+                {
+                    // Párbeszéd megjelenítése
+                    Párbeszéd();
+                }
+                else
+                {
+                    kijelzo.Megjelenit(display, karakter, palya, renderx, rendery);
+                    Kezeles();
+                    Thread.Sleep(1);
+                }
             }
         }
 
@@ -47,7 +59,6 @@ namespace RPG_Game
             {
                 Mozgas();
             }
-            Kijelzo.MenuGombok(ref display);
         }
 
         private void Mozgas()
@@ -79,13 +90,56 @@ namespace RPG_Game
                 {
                     UjKarakterPozicio(newX, newY);
                 }
+
+                // Shop
+                switch (key.Key)
+                {
+                    case ConsoleKey.D1:
+                        Vasarlas(50, 20, "Kard");
+                        break;
+                    case ConsoleKey.D2:
+                        Vasarlas(25, 10, "Íj");
+                        break;
+                    case ConsoleKey.D3:
+                        Vasarlas(20, 10, "Pajzs");
+                        break;
+                }
+            }
+        }
+
+        private void Vasarlas(int ar, int novekedes, string targy)
+        {
+            if (karakter.Gold >= ar)
+            {
+                karakter.Gold -= ar;
+                if (targy == "Kard")
+                {
+                    karakter.Sebzes += novekedes;
+                }
+                else if (targy == "Íj")
+                {
+                    karakter.Sebzes += novekedes;
+                }
+                else if (targy == "Pajzs")
+                {
+                    karakter.Armor += novekedes;
+                }
+
+                for (int i = 0; i < karakter.Inventory.Length; i++)
+                {
+                    if (karakter.Inventory[i] == null)
+                    {
+                        karakter.Inventory[i] = targy;
+                        break;
+                    }
+                }
             }
         }
 
         private bool EllenorizMozgas(int ujX, int ujY, ConsoleKey key)
         {
-            int characterHeight = karakter.AsciiArt.Length;
-            int characterWidth = karakter.AsciiArt[0].Length;
+            int characterHeight = karakter.kinezet.Length;
+            int characterWidth = karakter.kinezet[0].Length;
             string[,] terkep = palya.GetTerkep();
 
             switch (key)
@@ -131,15 +185,14 @@ namespace RPG_Game
             return true;
         }
 
-
         private void UjKarakterPozicio(int ujX, int ujY)
         {
             // Törli a karakter korábbi helyét
-            for (int i = 0; i < karakter.AsciiArt.Length; i++)
+            for (int i = 0; i < karakter.kinezet.Length; i++)
             {
-                for (int j = 0; j < karakter.AsciiArt[i].Length; j++)
+                for (int j = 0; j < karakter.kinezet[i].Length; j++)
                 {
-                    if (karakter.AsciiArt[i][j] != ' ')
+                    if (karakter.kinezet[i][j] != ' ')
                     {
                         palya.GetTerkep()[karakter.x + i, karakter.y + j] = " ";
                     }
@@ -150,13 +203,13 @@ namespace RPG_Game
             karakter.y = ujY;
 
             // Beállítja a karakter új helyét
-            for (int i = 0; i < karakter.AsciiArt.Length; i++)
+            for (int i = 0; i < karakter.kinezet.Length; i++)
             {
-                for (int j = 0; j < karakter.AsciiArt[i].Length; j++)
+                for (int j = 0; j < karakter.kinezet[i].Length; j++)
                 {
-                    if (karakter.AsciiArt[i][j] != ' ')
+                    if (karakter.kinezet[i][j] != ' ')
                     {
-                        palya.GetTerkep()[karakter.x + i, karakter.y + j] = karakter.AsciiArt[i][j].ToString();
+                        palya.GetTerkep()[karakter.x + i, karakter.y + j] = karakter.kinezet[i][j].ToString();
                     }
                 }
             }
@@ -164,15 +217,54 @@ namespace RPG_Game
 
         private void KarakterElhelyezes()
         {
-            for (int i = 0; i < karakter.AsciiArt.Length; i++)
+            for (int i = 0; i < karakter.kinezet.Length; i++)
             {
-                for (int j = 0; j < karakter.AsciiArt[i].Length; j++)
+                for (int j = 0; j < karakter.kinezet[i].Length; j++)
                 {
-                    if (karakter.AsciiArt[i][j] != ' ')
+                    if (karakter.kinezet[i][j] != ' ')
                     {
-                        palya.GetTerkep()[karakter.x + i, karakter.y + j] = karakter.AsciiArt[i][j].ToString();
+                        palya.GetTerkep()[karakter.x + i, karakter.y + j] = karakter.kinezet[i][j].ToString();
                     }
                 }
+            }
+        }
+
+        private void Párbeszéd()
+        {
+            Console.Clear();
+            Thread.Sleep(1000);
+            Console.BackgroundColor = ConsoleColor.Black;
+            Console.ForegroundColor = ConsoleColor.White;
+            string parbeszed1 = File.ReadAllText("parbeszed1.txt");
+            Console.WriteLine(parbeszed1);
+            Console.ReadKey();
+            Console.Clear();
+            string parbeszed2 = File.ReadAllText("parbeszed2.txt");
+            Console.WriteLine(parbeszed2);
+            Console.ReadKey();
+            Console.Clear();
+            string parbeszed3 = File.ReadAllText("parbeszed3.txt");
+            Console.WriteLine(parbeszed3);
+            Console.ReadKey();
+            Console.Clear();
+
+
+            // 10 másodperc várakozás
+            Thread.Sleep(10000);
+
+            gamestate = 1; // Játék indul
+            startTime = DateTime.Now;
+        }
+
+        private void EllenorizGameState()
+        {
+            if (gamestate == 6)
+            {
+                DateTime endTime = DateTime.Now;
+                double teljesitesiIdo = (endTime - startTime).TotalSeconds;
+                int pontszam = 1000 - (int)teljesitesiIdo;
+                Console.WriteLine($"Játék vége! Pontszám: {pontszam}");
+                Environment.Exit(0); // Program befejezése
             }
         }
     }
