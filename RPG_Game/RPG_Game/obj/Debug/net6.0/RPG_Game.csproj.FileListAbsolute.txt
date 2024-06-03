@@ -44,3 +44,19 @@ C:\Users\birot\Downloads\jatek\RPG_Game\RPG_Game\bin\Debug\net6.0\RPG_Game.dll
 C:\Users\birot\Downloads\jatek\RPG_Game\RPG_Game\bin\Debug\net6.0\RPG_Game.pdb
 C:\Users\birot\Downloads\jatek\RPG_Game\RPG_Game\obj\Debug\net6.0\RPG_Game.genruntimeconfig.cache
 C:\Users\birot\Downloads\jatek\RPG_Game\RPG_Game\obj\Debug\net6.0\ref\RPG_Game.dll
+C:\Users\Maródi - family\OneDrive\Asztali gép\11_SZFT3_BT_MR_ON_RPG_Adventure\RPG_Game\RPG_Game\bin\Debug\net6.0\RPG_Game.exe
+C:\Users\Maródi - family\OneDrive\Asztali gép\11_SZFT3_BT_MR_ON_RPG_Adventure\RPG_Game\RPG_Game\bin\Debug\net6.0\map.txt
+C:\Users\Maródi - family\OneDrive\Asztali gép\11_SZFT3_BT_MR_ON_RPG_Adventure\RPG_Game\RPG_Game\bin\Debug\net6.0\RPG_Game.deps.json
+C:\Users\Maródi - family\OneDrive\Asztali gép\11_SZFT3_BT_MR_ON_RPG_Adventure\RPG_Game\RPG_Game\bin\Debug\net6.0\RPG_Game.runtimeconfig.json
+C:\Users\Maródi - family\OneDrive\Asztali gép\11_SZFT3_BT_MR_ON_RPG_Adventure\RPG_Game\RPG_Game\bin\Debug\net6.0\RPG_Game.dll
+C:\Users\Maródi - family\OneDrive\Asztali gép\11_SZFT3_BT_MR_ON_RPG_Adventure\RPG_Game\RPG_Game\bin\Debug\net6.0\RPG_Game.pdb
+C:\Users\Maródi - family\OneDrive\Asztali gép\11_SZFT3_BT_MR_ON_RPG_Adventure\RPG_Game\RPG_Game\obj\Debug\net6.0\RPG_Game.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Maródi - family\OneDrive\Asztali gép\11_SZFT3_BT_MR_ON_RPG_Adventure\RPG_Game\RPG_Game\obj\Debug\net6.0\RPG_Game.AssemblyInfoInputs.cache
+C:\Users\Maródi - family\OneDrive\Asztali gép\11_SZFT3_BT_MR_ON_RPG_Adventure\RPG_Game\RPG_Game\obj\Debug\net6.0\RPG_Game.AssemblyInfo.cs
+C:\Users\Maródi - family\OneDrive\Asztali gép\11_SZFT3_BT_MR_ON_RPG_Adventure\RPG_Game\RPG_Game\obj\Debug\net6.0\RPG_Game.csproj.CoreCompileInputs.cache
+C:\Users\Maródi - family\OneDrive\Asztali gép\11_SZFT3_BT_MR_ON_RPG_Adventure\RPG_Game\RPG_Game\obj\Debug\net6.0\RPG_Game.sourcelink.json
+C:\Users\Maródi - family\OneDrive\Asztali gép\11_SZFT3_BT_MR_ON_RPG_Adventure\RPG_Game\RPG_Game\obj\Debug\net6.0\RPG_Game.dll
+C:\Users\Maródi - family\OneDrive\Asztali gép\11_SZFT3_BT_MR_ON_RPG_Adventure\RPG_Game\RPG_Game\obj\Debug\net6.0\refint\RPG_Game.dll
+C:\Users\Maródi - family\OneDrive\Asztali gép\11_SZFT3_BT_MR_ON_RPG_Adventure\RPG_Game\RPG_Game\obj\Debug\net6.0\RPG_Game.pdb
+C:\Users\Maródi - family\OneDrive\Asztali gép\11_SZFT3_BT_MR_ON_RPG_Adventure\RPG_Game\RPG_Game\obj\Debug\net6.0\RPG_Game.genruntimeconfig.cache
+C:\Users\Maródi - family\OneDrive\Asztali gép\11_SZFT3_BT_MR_ON_RPG_Adventure\RPG_Game\RPG_Game\obj\Debug\net6.0\ref\RPG_Game.dll
